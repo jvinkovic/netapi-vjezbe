@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Staycation.Data\Staycation.Data.csproj" />
+  </ItemGroup>
+
 </Project>
