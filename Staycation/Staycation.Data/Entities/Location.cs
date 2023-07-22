@@ -1,4 +1,4 @@
-﻿namespace Staycation.Data;
+﻿namespace Staycation.Data.Entities;
 
 public class Location : BaseEntity
 {

@@ -1,4 +1,6 @@
-﻿namespace Staycation.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Staycation.Data.Entities;
 
 public class Accommodation : BaseEntity
 {
@@ -12,5 +14,8 @@ public class Accommodation : BaseEntity
     public bool FreeCancellation { get; set; }
     public decimal Price { get; set; }
 
+    [ForeignKey(nameof(Location))]
     public int LocationId { get; set; }
+
+    public virtual Location Location { get; set; }
 }

@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using Staycation.Business.Interfaces;
 using Staycation.Business.Services;
+using Staycation.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IAccomodationService, AccomodationService>();
+string? connString = builder.Configuration.GetConnectionString("StaycationDB");
+
+builder.Services.AddDbContext<StaycationContext>(options =>
+{
+    options.UseSqlServer(connString);
+});
+builder.Services.AddTransient<IAccommodationService, AccommodationService>();
 
 var app = builder.Build();
 
