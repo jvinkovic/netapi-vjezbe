@@ -69,7 +69,7 @@ namespace Staycation.Data.Migrations
                     b.HasIndex("Title")
                         .IsUnique();
 
-                    b.ToTable("Accommodations");
+                    b.ToTable("Accommodations", (string)null);
 
                     b.HasData(
                         new
@@ -125,10 +125,10 @@ namespace Staycation.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostalCode")
@@ -137,7 +137,7 @@ namespace Staycation.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Locations");
+                    b.ToTable("Locations", (string)null);
 
                     b.HasData(
                         new
@@ -195,7 +195,7 @@ namespace Staycation.Data.Migrations
 
                     b.HasIndex("AccommodationId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
 
                     b.HasData(
                         new

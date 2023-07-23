@@ -33,7 +33,7 @@ public class AccommodationService : GenericService<Accommodation>, IAccommodatio
 
     public async Task<AccommodationDTO?> GetByIdAsync(int id)
     {
-        var entity = await _context.Accommodations.Include(x => x.Location).SingleOrDefaultAsync(x => x.Id == id);
+        var entity = await _context.Accommodations.AsNoTracking().Include(x => x.Location).SingleOrDefaultAsync(x => x.Id == id);
 
         if (entity == null)
         {
