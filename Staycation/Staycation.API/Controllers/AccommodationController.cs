@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Staycation.Business.DTO;
 using Staycation.Business.Interfaces;
 
@@ -6,6 +7,7 @@ namespace Staycation.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class AccommodationController : ControllerBase
 {
     private readonly IAccommodationService _service;
